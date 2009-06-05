@@ -36,7 +36,12 @@ function admin_admin_block_content($content, $get_runstate = FALSE) {
 
       $content[$k]['title'] = "<span class='icon'></span>{$item['title']}";
       $content[$k]['localized_options']['html'] = TRUE;
-      $content[$k]['localized_options']['attributes']['class'] .= $class;
+      if (!empty($content[$k]['localized_options']['attributes']['class'])) {
+        $content[$k]['localized_options']['attributes']['class'] .= $class;
+      }
+      else {
+        $content[$k]['localized_options']['attributes']['class'] = $class;
+      }
     }
     $output = system_admin_compact_mode() ? '<ul class="menu">' : '<ul class="admin-list">';
     foreach ($content as $item) {
