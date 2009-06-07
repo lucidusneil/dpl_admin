@@ -3,7 +3,7 @@
 Drupal.behaviors.admin_toolbar = function(context) {
 
   Drupal.admin = {
-    'toolbar': {},
+    'toolbar': {}
   }
 
   Drupal.admin.toolbar.setActive = function(toolbar_id) {
