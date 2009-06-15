@@ -50,7 +50,7 @@ function admin_form_menu_overview_form_alter(&$form, &$form_state) {
 /**
  * Theme the menu overview form into a table.
  */
-function admin_admin_menu_overview_form($form) {
+function theme_admin_menu_overview_form($form) {
   drupal_add_tabledrag('menu-overview', 'match', 'parent', 'menu-plid', 'menu-plid', 'menu-mlid', TRUE, MENU_MAX_DEPTH - 1);
   drupal_add_tabledrag('menu-overview', 'order', 'sibling', 'menu-weight');
 
