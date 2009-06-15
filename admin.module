@@ -161,6 +161,18 @@ function admin_system_info_alter(&$info, &$theme) {
 }
 
 /**
+ * Implementation of hook_help().
+ */
+function admin_help($path, $arg) {
+  // Fool node help to think we are on node/add
+  if ($arg[0] == 'admin' && $arg[1] == 'content' && $arg[2] == 'add' && $arg[3]) {
+    $path = 'node/add/'. $arg[3];
+    $arg = array('node', 'add', $arg[3]);
+    return module_invoke('node', 'help', $path, $arg);
+  }
+}
+
+/**
  * Implementation of hook_perm().
  */
 function admin_perm() {
