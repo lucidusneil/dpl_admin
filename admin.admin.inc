@@ -154,8 +154,8 @@ function admin_menu_overview_form_submit($form, &$form_state) {
  * Implementation of hook_form_alter() for system_admin_theme_settings.
  */
 function admin_form_system_admin_theme_settings_alter(&$form) {
-  // Add in our stealth theme as an option
-  $form['admin_theme']['#options']['admin'] = t('Admin');
+  // Add in our admin theme ('slate') as an option
+  $form['admin_theme']['#options']['slate'] = t('Slate (formerly \'Admin\')');
 }
 
 /**

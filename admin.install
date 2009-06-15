@@ -16,3 +16,16 @@ function admin_update_6001() {
   $return[] = update_sql("INSERT INTO {menu_custom} (menu_name, title, description) VALUES ('admin', 'Admin', 'Admin links.')");
   return $return;
 }
+
+/**
+ * Update 6002: Update theme namespace to 'slate'.
+ */
+function admin_update_6002() {
+  db_query("DELETE FROM {system} WHERE name = 'admin' AND type = 'theme'");
+  _admin_theme_rebuild(TRUE);
+
+  if (variable_get('admin_theme', NULL) == 'admin') {
+    variable_set('admin_theme', 'slate');
+  }
+  return array();
+}

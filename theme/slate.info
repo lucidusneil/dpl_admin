@@ -1,6 +1,6 @@
 ; $Id$
-name = "Admin"
-description = "Stealth admin theme. Provided/managed by the admin module."
+name = "Slate"
+description = "Slate theme. Provided/managed by the admin module."
 version = "0.1"
 core = "6.x"
 engine = "phptemplate"
