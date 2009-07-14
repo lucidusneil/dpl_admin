@@ -427,12 +427,26 @@ function admin_menu_tree() {
   // Add user-specific links
   global $user;
   $user_links = array();
-  $user_links[] = array(
-    'title' => t('Hello <strong>!username</strong>', array('!username' => $user->name)),
-    'href' => 'user',
-    'html' => TRUE
-  );
-  $user_links[] = array('title' => t('Logout'), 'href' => "logout");
+  if (empty($user->uid)) {
+    $user_links[] = array(
+      'title' => t('Login'),
+      'href' => 'user',
+      'html' => TRUE
+    );
+    $user_links[] = array(
+      'title' => t('Register'),
+      'href' => 'user/register',
+      'html' => TRUE
+    );
+  }
+  else {
+    $user_links[] = array(
+      'title' => t('Hello <strong>!username</strong>', array('!username' => $user->name)),
+      'href' => 'user',
+      'html' => TRUE
+    );
+    $user_links[] = array('title' => t('Logout'), 'href' => "logout");
+  }
   $links[0]['user'] = $user_links;
 
   return $links;
