@@ -101,8 +101,9 @@ function admin_landing_page_access($path) {
  */
 function admin_menu_alter(&$items) {
   foreach ($items as $path => $item) {
+    $args = explode('/', $path);
     // Move all admin/* items to admin menu links.
-    if (strpos($path, 'admin') === 0) {
+    if ($args && $args[0] === 'admin') {
       $items[$path]['menu_name'] = 'admin';
     }
     // Smarter access callback for poorly checked landing pages
