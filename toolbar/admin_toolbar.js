@@ -29,6 +29,10 @@ Drupal.behaviors.admin_toolbar = function(context) {
         }
         // Add click handler
         $(this).click(function() {
+          if ($(this).is('.active')) {
+            window.location = $(this).attr('href');
+            return true;
+          }
           Drupal.admin.toolbar.setActive(target);
           return false;
         });
