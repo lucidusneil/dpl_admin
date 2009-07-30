@@ -5,6 +5,11 @@
  * Implementation of hook_init().
  */
 function admin_init() {
+  // Don't do anything if the user has no access.
+  if (!user_access('admin menu') && !user_access('admin inline')) {
+    return;
+  }
+
   $path = drupal_get_path('module', 'admin');
   drupal_add_js($path .'/toolbar/admin_toolbar.js');
   drupal_add_css($path .'/toolbar/admin_toolbar.css');
