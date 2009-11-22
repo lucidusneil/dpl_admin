@@ -227,10 +227,6 @@ div#admin-toolbar span.admin-toggle {
     background-position:0px -35px;
     }
 
-/* Static positioned toolbar. Only applies if toolbar is at the top of the page. */
-body.admin-static div#admin-toolbar.horizontal.ne,
-body.admin-static div#admin-toolbar.horizontal.nw { position:relative; }
-
 /**
  * Admin tabs
  */
