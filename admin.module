@@ -194,6 +194,11 @@ function admin_theme($cache, $type, $theme, $path) {
     'path' => $path . '/theme',
     'file' => 'theme.inc',
   );
+  $items['admin_settings_form'] = array(
+    'arguments' => array('element' => array()),
+    'path' => $path,
+    'file' => 'admin.admin.inc',
+  );
   return $items;
 }
 
