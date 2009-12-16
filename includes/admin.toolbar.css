@@ -153,6 +153,7 @@ div#admin-toolbar div.admin-tab-active {
 
 #admin-toolbar div.form-item { padding:4px; }
 
+#admin-toolbar div.form-item div.description,
 #admin-toolbar div.form-item label { color:#999; }
 
 /**
