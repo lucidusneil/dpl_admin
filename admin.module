@@ -250,15 +250,25 @@ function admin_get_settings($key = NULL) {
  * Get all blocks that have declared themselves visible in the admin toolbar by default.
  */
 function admin_get_default_blocks($reset = FALSE) {
-  $defaults = array();
-  foreach (module_implements('block') as $module) {
-    $module_blocks = module_invoke($module, 'block', 'list');
-    if ($module_blocks) {
-      foreach ($module_blocks as $delta => $info) {
-        if (isset($info['admin'])) {
-          $defaults["{$module}-{$delta}"] = "{$module}-{$delta}";
+  static $defaults;
+  if (!isset($defaults) || $reset) {
+    $cache = cache_get('admin_default_blocks');
+    if ($cache && !$reset) {
+      $defaults = $cache->data;
+    }
+    else {
+      $defaults = array();
+      foreach (module_implements('block') as $module) {
+        $module_blocks = module_invoke($module, 'block', 'list');
+        if ($module_blocks) {
+          foreach ($module_blocks as $delta => $info) {
+            if (isset($info['admin'])) {
+              $defaults["{$module}-{$delta}"] = "{$module}-{$delta}";
+            }
+          }
         }
       }
+      cache_set('admin_default_blocks', $defaults);
     }
   }
   return $defaults;
