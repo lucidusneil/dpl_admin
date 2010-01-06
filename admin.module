@@ -16,14 +16,6 @@ function admin_init() {
     drupal_add_css("{$path}/includes/admin.toolbar.base.css");
     drupal_add_css("{$path}/includes/admin.toolbar.css");
     drupal_add_css("{$path}/includes/admin.menu.css");
-    if ($trail = menu_get_active_trail()) {
-      do {
-        $last = array_pop($trail);
-      } while (count($trail) && !($last['type'] & MENU_VISIBLE_IN_TREE));
-      if ($last) {
-        drupal_add_js(array('activePath' => url($last['href'])), 'setting');
-      }
-    }
   }
 }
 
@@ -309,6 +301,14 @@ function admin_get_admin_blocks($reset = FALSE) {
  */
 function admin_preprocess_pre_page(&$vars) {
   admin_set_admin_blocks();
+  if (user_access('use admin toolbar') && $trail = menu_get_active_trail()) {
+    do {
+      $last = array_pop($trail);
+    } while (count($trail) && !($last['type'] & MENU_VISIBLE_IN_TREE));
+    if ($last) {
+      drupal_add_js(array('activePath' => url($last['href'])), 'setting');
+    }
+  }
 }
 
 /**
