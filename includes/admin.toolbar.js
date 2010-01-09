@@ -102,7 +102,12 @@ Drupal.adminToolbar.toggle = function (toolbar) {
   if ($(document.body).is('.admin-expanded')) {
     if ($(toolbar).is('.vertical')) {
       $('div.admin-blocks', toolbar).animate({width:'0px'}, 'fast', function() { $(this).css('display', 'none'); });
-      $(document.body).animate({marginLeft:'0px'}, 'fast', function() { $(this).toggleClass('admin-expanded'); });
+      if ($(toolbar).is('.nw') || $(toolbar).is('sw')) {
+        $(document.body).animate({marginLeft:'0px'}, 'fast', function() { $(this).toggleClass('admin-expanded'); });
+      }
+      else {
+        $(document.body).animate({marginRight:'0px'}, 'fast', function() { $(this).toggleClass('admin-expanded'); });
+      }
     }
     else {
       $('div.admin-blocks', toolbar).slideUp('fast', function() { $(document.body).toggleClass('admin-expanded'); });
@@ -112,7 +117,12 @@ Drupal.adminToolbar.toggle = function (toolbar) {
   else {
     if ($(toolbar).is('.vertical')) {
       $('div.admin-blocks', toolbar).animate({width:'260px'}, 'fast');
-      $(document.body).animate({marginLeft:'260px'}, 'fast', function() { $(this).toggleClass('admin-expanded'); });
+      if ($(toolbar).is('.nw') || $(toolbar).is('sw')) {
+        $(document.body).animate({marginLeft:'260px'}, 'fast', function() { $(this).toggleClass('admin-expanded'); });
+      }
+      else {
+        $(document.body).animate({marginRight:'260px'}, 'fast', function() { $(this).toggleClass('admin-expanded'); });
+      }
     }
     else {
       $('div.admin-blocks', toolbar).slideDown('fast', function() { $(document.body).toggleClass('admin-expanded'); });
