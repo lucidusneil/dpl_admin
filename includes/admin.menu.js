@@ -14,16 +14,16 @@ Drupal.behaviors.adminToolbarMenu = function(context) {
         // to that admin tab.
         menu.bind('refresh.drilldown', function() {
           $(trail + ' a').unbind('click').click(function() {
-              if ($(this).parents('div.admin-tab').is('.admin-tab-active')) {
-                var url = $(this).attr('href');
-                var settings = {'activeLink': $('ul.menu a[href='+url+']', menu), 'trail': trail};
-                menu.drilldown('setActive', settings);
-              }
-              else {
-                $(this).parents('div.admin-tab').click();
-              }
-              return false;
-            });
+            if ($(this).parents('div.admin-tab').is('.admin-tab-active')) {
+              var url = $(this).attr('href');
+              var settings = {'activeLink': $('ul.menu a[href='+url+']', menu), 'trail': trail};
+              menu.drilldown('setActive', settings);
+            }
+            else {
+              $(this).parents('div.admin-tab').click();
+            }
+            return false;
+          });
         });
       });
   }
