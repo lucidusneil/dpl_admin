@@ -15,12 +15,16 @@ Drupal.behaviors.adminToolbarMenu = function(context) {
         menu.bind('refresh.drilldown', function() {
           $(trail + ' a').unbind('click').click(function() {
             if ($(this).parents('div.admin-tab').is('.admin-tab-active')) {
-              if ($(this).siblings().size() !== 0) {
-                var settings = {'activeLink': $(this).data('original'), 'trail': trail};
+              var settings = {'activeLink': $(this).data('original'), 'trail': trail};
+
+              // If the clicked link does not reference the current
+              // active menu, set it to be active.
+              if (settings.activeLink.siblings('ul.drilldown-active-menu').size() === 0) {
                 menu.drilldown('setActive', settings);
                 return false;
               }
-              return true;
+              // Otherwise, pass-through and allow the link to be clicked.
+              return menu.drilldown('goTo', settings);
             }
             $(this).parents('div.admin-tab').click();
             return false;
