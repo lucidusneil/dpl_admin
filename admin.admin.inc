@@ -45,8 +45,10 @@ function admin_settings_form() {
   // Get default block options.
   $options = array();
   $enabled = array_filter(admin_get_settings('blocks')) + admin_get_default_blocks(TRUE);
-  foreach (array_intersect_key($block_info, $enabled) as $bid => $info) {
-    $options[$bid] = $info['info'];
+  foreach ($block_info as $bid => $info) {
+    if (!empty($enabled[$bid])) {
+      $options[$bid] = $info['info'];
+    }
   }
   asort($options);
 
