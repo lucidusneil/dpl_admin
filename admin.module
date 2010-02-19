@@ -306,8 +306,6 @@ function admin_get_admin_blocks($reset = FALSE) {
  * Preprocessor that runs *before* template_preprocess_page().
  */
 function admin_preprocess_pre_page(&$vars) {
-  print 'blocks';
-
   admin_set_admin_blocks();
   if (user_access('use admin toolbar') && $trail = menu_get_active_trail()) {
     do {
