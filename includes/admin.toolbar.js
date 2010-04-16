@@ -141,9 +141,11 @@ Drupal.adminToolbar.getState = function(key) {
     var query = cookie ? cookie.split('&') : [];
     if (query) {
       for (var i in query) {
-        var values = query[i].split('=');
-        if (values.length === 2) {
-          Drupal.adminToolbar.state[values[0]] = values[1];
+        if (typeof query[i] === 'string') {
+          var values = query[i].split('=');
+          if (values.length === 2) {
+            Drupal.adminToolbar.state[values[0]] = values[1];
+          }
         }
       }
     }
