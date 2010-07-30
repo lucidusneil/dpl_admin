@@ -141,9 +141,14 @@ Drupal.adminToolbar.getState = function(key) {
     var query = cookie ? cookie.split('&') : [];
     if (query) {
       for (var i in query) {
-        var values = query[i].split('=');
-        if (values.length === 2) {
-          Drupal.adminToolbar.state[values[0]] = values[1];
+        // Extra check to avoid js errors in Chrome, IE and Safari when
+        // combined with JS like twitter's widget.js.
+        // See http://drupal.org/node/798764.
+        if (typeof(query[i]) == 'string') {
+          var values = query[i].split('=');
+          if (values.length === 2) {
+            Drupal.adminToolbar.state[values[0]] = values[1];
+          }
         }
       }
     }
