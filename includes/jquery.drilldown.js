@@ -35,9 +35,11 @@
         $(settings.activeLink).each(function() {
           // Traverse backwards through menu parents and build breadcrumb array.
           $(this).parents('ul.menu').each(function() {
-            $(this).siblings('a').each(function() {
-              breadcrumb.unshift($(this));
-            });
+            if ($(this).parents('ul.menu').size() > 0) {
+              $(this).siblings('a').each(function() {
+                breadcrumb.unshift($(this));
+              });
+            }
           });
 
           // If we have a child menu (actually a sibling in the DOM), use it
