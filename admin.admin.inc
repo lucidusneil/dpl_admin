@@ -31,6 +31,16 @@ function admin_settings_form() {
     ),
     '#default_value' => admin_get_settings('position'),
   );
+  $form['admin_toolbar']['behavior'] = array(
+    '#type' => 'select',
+    '#title' => t('State on new pages'),
+    '#description' => t('Choose toolbar behavior on new page loads.'),
+    '#options' => array(
+      'df' => t('Remember from previous page'),
+      'ah' => t('Collapsed'),
+    ),
+    '#default_value' => admin_get_settings('behavior'),
+  );
 
   $block_info = array();
   foreach (module_implements('block') as $module) {
