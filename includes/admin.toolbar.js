@@ -166,7 +166,7 @@ Drupal.adminToolbar.getState = function(key) {
         // Extra check to avoid js errors in Chrome, IE and Safari when
         // combined with JS like twitter's widget.js.
         // See http://drupal.org/node/798764.
-        if (typeof(query[i]) == 'string') {
+        if (typeof(query[i]) == 'string' && query[i].indexOf('=') != -1) {
           var values = query[i].split('=');
           if (values.length === 2) {
             Drupal.adminToolbar.state[values[0]] = values[1];
