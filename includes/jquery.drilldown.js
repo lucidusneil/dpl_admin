@@ -104,6 +104,7 @@
 
         // Set initial active menu state.
         var activeLink;
+        $('ul.menu a', menu).removeClass('active');
         if (settings.activePath && $('ul.menu a[href='+settings.activePath+']', menu).size() > 0) {
           this.activePath = settings.activePath;
           activeLink = $('ul.menu a[href='+settings.activePath+']', menu).addClass('active');
