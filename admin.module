@@ -167,6 +167,18 @@ function admin_menu_alter(&$items) {
   );
   $items['admin/settings/admin/settings']['title'] = 'Settings';
   $items['admin/settings/admin/settings']['type'] = MENU_DEFAULT_LOCAL_TASK;
+  $items['admin/settings/admin/rebuild'] = array(
+    'title' => 'Rebuild',
+    'description' => 'Wipe and rebuild the administrative menu.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('admin_settings_rebuild'),
+    'access callback' => 'user_access',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'admin.admin.inc',
+    'module' => 'admin',
+    'weight' => 10,
+  );
 
   foreach ($items as $path => $item) {
     $item['type'] = isset($item['type']) ? $item['type'] : MENU_NORMAL_ITEM;
