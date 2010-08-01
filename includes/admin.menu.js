@@ -8,6 +8,25 @@ Drupal.behaviors.adminToolbarMenu = function(context) {
         var menu = $(this);
         var trail = '#admin-toolbar div.admin-tab.' + $(this).attr('id').split('block-')[1] + ' span';
 
+        if ($('a:has(span.menu-description)', menu).size() > 0) {
+          menu.addClass('admin-toolbar-menu-hover');
+          $('a:has(span.menu-description)', menu).hover(
+            function() {
+              $('<a></a>')
+                .attr('class', $(this).attr('class'))
+                .addClass('menu-hover')
+                .append($('span.menu-description', this).clone())
+                .appendTo(menu)
+                .show();
+            },
+            function() {
+              $(menu)
+                .children('a.menu-hover')
+                .remove();
+            }
+          );
+        }
+
         // Replace the standard trail click handler with one that only
         // adjusts menu if the admin tab is active. Otherwise, switch
         // to that admin tab.
