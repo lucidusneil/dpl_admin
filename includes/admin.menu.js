@@ -7,6 +7,7 @@ Drupal.behaviors.adminToolbarMenu = function(context) {
       .each(function() {
         var menu = $(this);
         var trail = '#admin-toolbar div.admin-tab.' + $(this).attr('id').split('block-')[1] + ' span';
+        var rootTitle = $(trail).text();
 
         if ($('a:has(span.menu-description)', menu).size() > 0) {
           menu.addClass('admin-toolbar-menu-hover');
@@ -50,7 +51,11 @@ Drupal.behaviors.adminToolbarMenu = function(context) {
         });
 
         // Init drilldown plugin.
-        menu.drilldown('init', {'activePath': Drupal.settings.activePath, 'trail': trail});
+        menu.drilldown('init', {
+          activePath: Drupal.settings.activePath,
+          trail: trail,
+          rootTitle: rootTitle
+        });
       });
   }
 };
