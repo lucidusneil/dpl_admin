@@ -260,17 +260,6 @@ function admin_theme($cache, $type, $theme, $path) {
     'path' => $path . '/theme',
     'file' => 'theme.inc',
   );
-  $items['admin_menu_item'] = array(
-    'arguments' => array(
-      'link' => NULL,
-      'has_children' => NULL,
-      'menu' => '',
-      'in_active_trail' => FALSE,
-      'extra_class' => NULL
-    ),
-    'path' => $path . '/theme',
-    'file' => 'theme.inc',
-  );
   $items['admin_menu_item_link'] = array(
     'arguments' => array('item' => array()),
     'path' => $path . '/theme',
