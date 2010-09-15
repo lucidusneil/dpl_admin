@@ -19,7 +19,7 @@ function admin_block_theme() {
 /**
  * Devel admin block form.
  */
-function admin_block_theme_form($form_state, $themes) {
+function admin_block_theme_form($form, $form_state, $themes) {
   $options = array();
   foreach ($themes as $theme) {
     if ($theme->status) {
