@@ -1,10 +1,10 @@
-<div class='admin-panes clear-block '>
+<div class='admin-panes clearfix '>
   <?php if ($layout == 'vertical'): ?>
 
     <?php foreach ($panels as $key => $panel): ?>
       <div class='admin-pane <?php if (!isset($first)) print 'admin-pane-active' ?> admin-pane-<?php print $key ?>'>
         <h2 class='admin-pane-title'><?php print $labels[$key] ?></h2>
-        <div class='admin-pane-content clear-block'><?php print render($panel) ?></div>
+        <div class='admin-pane-content clearfix'><?php print render($panel) ?></div>
       </div>
       <?php $first = TRUE ?>
     <?php endforeach; ?>
@@ -19,7 +19,7 @@
 
     <?php foreach ($panels as $key => $panel): ?>
       <div class='admin-pane <?php if (!isset($first)) print 'admin-pane-active' ?> admin-pane-<?php print $key ?>'>
-        <div class='admin-pane-content clear-block'><?php print render($panel) ?></div>
+        <div class='admin-pane-content clearfix'><?php print render($panel) ?></div>
       </div>
       <?php $first = TRUE ?>
     <?php endforeach; ?>

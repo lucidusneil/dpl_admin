@@ -69,9 +69,9 @@
           }
           if (activeMenu) {
             $('.drilldown-active-trail', menu).removeClass('drilldown-active-trail');
-            $('ul.menu', menu).removeClass('drilldown-active-menu').removeClass('clear-block');
+            $('ul.menu', menu).removeClass('drilldown-active-menu').removeClass('clearfix');
             $(activeMenu)
-              .addClass('drilldown-active-menu').addClass('clear-block')
+              .addClass('drilldown-active-menu').addClass('clearfix')
               .parents('li').addClass('drilldown-active-trail').show();
           }
         });

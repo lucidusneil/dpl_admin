@@ -22,7 +22,10 @@ function admin_block_devel_form($form, $form_state) {
   if (user_access('switch users')) {
     $panes['switch_user'] = array(
       '#title' => t('Switch user'),
-      'list' => array('#markup' => theme('links', array('links' => devel_switch_user_list()))),
+      'list' => array('#markup' => theme('links', array(
+        'links' => devel_switch_user_list(),
+        'attributes' => array('class' => 'links clearfix'),
+      ))),
       'user' => devel_switch_user_form(),
     );
     $panes['switch_user']['user']['#submit'] = array('devel_switch_user_form_submit');
