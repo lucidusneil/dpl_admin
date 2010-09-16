@@ -4,7 +4,7 @@
 /**
  * System settings form for admin toolbar.
  */
-function admin_settings_form() {
+function admin_settings_form($form, &$form_state) {
   $form['admin_toolbar'] = array(
     '#tree' => TRUE,
     '#theme' => 'admin_settings_form',
@@ -194,11 +194,11 @@ function admin_settings_rebuild($form_state) {
  * Wipe and rebuild the admin menu.
  */
 function admin_settings_rebuild_submit($form, &$form_state) {
-  // TODO Please review the conversion of this statement to the D7 database API syntax.
-  /* db_query("DELETE FROM {menu_links} WHERE menu_name = 'admin'") */
   db_delete('menu_links')
-  ->condition('menu_name', 'admin')
-  ->execute();
+    ->condition('menu_name', 'management')
+    ->execute();
   menu_rebuild();
-  cache_clear_all('admin', 'cache_block', TRUE);
+  if (module_exists('block')) {
+    cache_clear_all('admin', 'cache_block', TRUE);
+  }
 }
