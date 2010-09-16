@@ -1,7 +1,7 @@
 ; $Id$
-name = "Admin"
-description = "UI helpers for Drupal admins and managers."
-package = "Administration"
+name = Admin
+description = UI helpers for Drupal admins and managers.
+package = Administration
 core = 7.x
 
 files[] = admin.admin.inc

@@ -359,7 +359,7 @@ function admin_page_build(&$page) {
   }
   if (!admin_suppress(FALSE) && $blocks = admin_get_admin_blocks()) {
     $path = drupal_get_path('module', 'admin');
-    drupal_add_js("{$path}/includes/jquery.cookie.js");
+    drupal_add_js("misc/jquery.cookie.js");
     drupal_add_js("{$path}/includes/jquery.drilldown.js");
     drupal_add_js("{$path}/includes/admin.toolbar.js");
     drupal_add_js("{$path}/includes/admin.menu.js");
