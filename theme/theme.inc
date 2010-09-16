@@ -8,12 +8,18 @@ function template_preprocess_admin_toolbar(&$vars) {
   $active = admin_get_settings('active_tab') ? admin_get_settings('active_tab') : key($vars['blocks']);
 
   if (!empty($vars['blocks'])) {
+    $blocks = $vars['blocks'];
     $vars['tabs'] = array();
-    foreach ($vars['blocks'] as $bid => $block) {
+    $vars['blocks'] = array();
+    foreach ($blocks as $block) {
+      $bid = $block->bid;
       $vars['tabs'][$bid] = array(
         'title' => $block->subject,
         'attributes' => array('id' => 'admin-tab-' . $bid),
       );
+      $vars['blocks'][$bid] = $block;
+
+      // Mark active tab, block.
       if ($bid == $active) {
         $vars['blocks'][$bid]->class = 'admin-active';
         $vars['tabs'][$bid]['active'] = TRUE;
@@ -33,9 +39,13 @@ function template_preprocess_admin_panes(&$vars) {
   foreach (element_children($vars['element']) as $key) {
     if (!isset($vars['element'][$key]['#access']) || $vars['element'][$key]['#access']) {
       if (!empty($vars['element'][$key]['#title'])) {
-        $vars['labels'][$key] = l($vars['element'][$key]['#title'], $_GET['q'], array('fragment' => 'admin-pane-' . $key, 'attributes' => array('class' => $first ? 'admin-pane-active' : '')));
-        $vars['panels'][$key] = isset($vars['element'][$key]['#children']) ? $vars['element'][$key]['#children'] : $vars['element'][$key]['#value'];
-        $vars['panels'][$key] .= isset($vars['element'][$key]['#description']) ? "<div class='description'>" . filter_xss_admin($vars['element'][$key]['#description']) . "</div>" : '';
+        $vars['labels'][$key] = l($vars['element'][$key]['#title'], $_GET['q'], array(
+          'fragment' => 'admin-pane-' . $key,
+          'attributes' => array(
+            'class' => array($first ? 'admin-pane-active' : '')
+          )
+        ));
+        $vars['panels'][$key] = $vars['element'][$key];
         $first = FALSE;
       }
       else {
