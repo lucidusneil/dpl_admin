@@ -1,6 +1,8 @@
 // $Id$
+(function($) {
 
-Drupal.behaviors.adminToolbar = function(context) {
+Drupal.behaviors.adminToolbar = {};
+Drupal.behaviors.adminToolbar.attach = function(context) {
   $('#admin-toolbar:not(.processed)').each(function() {
     var toolbar = $(this);
     toolbar.addClass('processed');
@@ -192,3 +194,5 @@ Drupal.adminToolbar.setState = function(key, value) {
     $.cookie('DrupalAdminToolbar', query.join('&'), {expires: 7, path: '/'});
   }
 };
+
+})(jQuery);

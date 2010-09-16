@@ -1,6 +1,8 @@
 // $Id$
+(function($) {
 
-Drupal.behaviors.adminDevel = function(context) {
+Drupal.behaviors.adminDevel = {};
+Drupal.behaviors.adminDevel.attach = function(context) {
   $('#block-admin-devel:not(.admin-processed)').each(function() {
     var devel = $(this);
     devel.addClass('admin-processed');
@@ -31,3 +33,5 @@ Drupal.behaviors.adminDevel = function(context) {
     });
   });
 };
+
+})(jQuery);

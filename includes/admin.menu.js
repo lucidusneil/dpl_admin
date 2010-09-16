@@ -1,6 +1,8 @@
 // $Id$
+(function($) {
 
-Drupal.behaviors.adminToolbarMenu = function(context) {
+Drupal.behaviors.adminToolbarMenu = {};
+Drupal.behaviors.adminToolbarMenu.attach = function(context) {
   if (jQuery().drilldown) {
     $('#admin-toolbar div.admin-block:has(ul.menu):not(.admin-toolbar-menu)')
       .addClass('admin-toolbar-menu')
@@ -59,3 +61,5 @@ Drupal.behaviors.adminToolbarMenu = function(context) {
       });
   }
 };
+
+})(jQuery);
