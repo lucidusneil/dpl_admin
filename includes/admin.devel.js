@@ -19,7 +19,7 @@ Drupal.behaviors.adminDevel.attach = function(context) {
     // Query list show handler.
     $('input.dev-querylog-show', devel).click(function() {
       $(this).hide().siblings('input.dev-querylog-hide').show();
-      $('body > *:not(#admin-toolbar, .devel-querylog)').addClass('devel-hide');
+      $('body > *:not(#admin-toolbar, .region-page-bottom, .devel-querylog)').addClass('devel-hide');
       $('body > .devel-querylog').show();
       return false;
     });
@@ -27,7 +27,7 @@ Drupal.behaviors.adminDevel.attach = function(context) {
     // Query list hide handler.
     $('input.dev-querylog-hide').click(function() {
       $(this).hide().siblings('input.dev-querylog-show').show();
-      $('body > *:not(#admin-toolbar, .devel-querylog)').removeClass('devel-hide');
+      $('body > *:not(#admin-toolbar, .region-page-bottom, .devel-querylog)').removeClass('devel-hide');
       $('body > .devel-querylog').hide();
       return false;
     });
