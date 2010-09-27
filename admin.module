@@ -387,7 +387,7 @@ function admin_preprocess_html(&$vars) {
     $layout = admin_get_settings('layout');
     $behavior = admin_get_settings('behavior');
     $class = admin_get_settings('expanded') ? 'admin-expanded' : '';
-    $vars['classes'][] = " admin-{$position} admin-{$layout} admin-{$behavior} {$class} ";
+    $vars['classes_array'][] = " admin-{$position} admin-{$layout} admin-{$behavior} {$class} ";
   }
 }
 
