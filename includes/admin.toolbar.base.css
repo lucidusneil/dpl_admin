@@ -139,6 +139,8 @@ div#admin-toolbar {
   position:fixed;
   }
 
+html.overlay-open div#admin-toolbar { z-index:600; }
+
 /**
  * Toggling ===========================================================
  */

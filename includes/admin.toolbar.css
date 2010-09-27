@@ -15,8 +15,6 @@ div#admin-toolbar a {
   font-weight:normal;
   }
 
-html.overlay-open div#admin-toolbar { z-index:600; }
-
 /**
  * Toolbar background =================================================
  */
