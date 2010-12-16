@@ -108,7 +108,7 @@ Drupal.adminToolbar.tab = function(toolbar, tab, animate) {
 Drupal.adminToolbar.toggle = function (toolbar) {
   if ($(document.body).is('.admin-expanded')) {
     if ($(toolbar).is('.vertical')) {
-      $('div.admin-blocks', toolbar).animate({width:'0px'}, 'fast', function() { $(this).css('display', 'none'); });
+      $('div.admin-blocks', toolbar).animate({width:'0px'}, 'fast');
       if ($(toolbar).is('.nw') || $(toolbar).is('sw')) {
         $('iframe.overlay-element').contents().find('body').animate({marginLeft:'0px'}, 'fast');
         $(document.body).animate({marginLeft:'0px'}, 'fast', function() { $(this).toggleClass('admin-expanded'); });
