@@ -18,6 +18,7 @@ Drupal.behaviors.adminToolbarMenu.attach = function(context) {
               $('<a></a>')
                 .attr('class', $(this).attr('class'))
                 .addClass('menu-hover')
+                .addClass('overlay-exclude')
                 .append($('span.menu-description', this).clone())
                 .appendTo(menu)
                 .show();
