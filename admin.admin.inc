@@ -79,7 +79,8 @@ function admin_settings_form($form, &$form_state) {
   }
   $custom_options = array();
   foreach (array_diff_key($block_info, $options) as $bid => $info) {
-    $module = array_shift(explode('-', $bid));
+    $block_parts = (explode('-', $bid));
+    $module = array_shift($block_parts);
     $module = isset($modules[$module]) ? $modules[$module] : $module;
     $custom_options[$module][$bid] = $info['info'];
   }
