@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * Theme switcher admin block.
