@@ -1,4 +1,3 @@
-// $Id$
 
 Drupal.behaviors.adminToolbar = function(context) {
   $('#admin-toolbar:not(.processed)').each(function() {

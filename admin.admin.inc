@@ -1,5 +1,4 @@
 <?php
-// $Id$
 
 /**
  * System settings form for admin toolbar.

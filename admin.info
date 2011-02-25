@@ -1,4 +1,3 @@
-; $Id$
 name = "Admin"
 description = "UI helpers for Drupal admins and managers."
 package = "Administration"

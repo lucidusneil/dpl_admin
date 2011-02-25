@@ -1,4 +1,3 @@
-// $Id$
 
 Drupal.behaviors.adminToolbarMenu = function(context) {
   if (jQuery().drilldown) {

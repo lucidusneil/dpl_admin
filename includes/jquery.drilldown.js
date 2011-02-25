@@ -1,4 +1,3 @@
-// $Id$
 
 /**
  * Generic menu drilldown plugin for standard Drupal menu tree markup.
