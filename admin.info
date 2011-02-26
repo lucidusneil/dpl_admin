@@ -2,3 +2,5 @@ name = "Admin"
 description = "UI helpers for Drupal admins and managers."
 package = "Administration"
 core = 6.x
+; array_diff_key() requires php 5.1+
+php = 5.1.0
