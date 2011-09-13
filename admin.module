@@ -192,7 +192,7 @@ function admin_permission() {
   return array(
     'use admin toolbar' => array(
       'title' => t('use admin toolbar'),
-      'description' => t('TODO Add a description for \'use admin toolbar\''),
+      'description' => t('Use the admin toolbar'),
     ),
     'select different theme' => array(
       'title' => t('select different theme'),
