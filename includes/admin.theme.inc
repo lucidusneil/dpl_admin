@@ -4,14 +4,12 @@
  * Theme switcher admin block.
  */
 function admin_block_theme() {
-  if (user_access('select different theme')) {
-    $themes = list_themes();
-    if (count($themes) > 2) {
-      return array(
-        'subject' => t('Switch theme'),
-        'content' => drupal_get_form('admin_block_theme_form', $themes),
-      );
-    }
+  $themes = list_themes();
+  if (count($themes) > 2) {
+    return array(
+      'subject' => t('Switch theme'),
+      'content' => drupal_get_form('admin_block_theme_form', $themes),
+    );
   }
 }
 
