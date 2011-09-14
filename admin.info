@@ -2,6 +2,7 @@ name = Admin
 description = UI helpers for Drupal admins and managers.
 package = Administration
 core = 7.x
+configure = admin/config/user-interface/admin
 
 files[] = admin.admin.inc
 files[] = admin.install
