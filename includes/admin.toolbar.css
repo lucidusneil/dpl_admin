@@ -182,3 +182,7 @@ div#admin-toolbar div.admin-tab-active {
   background:#222;
   border-color:#333;
   }
+
+body.toolbar #admin-toolbar.vertical {
+  margin-top: 65px;
+}

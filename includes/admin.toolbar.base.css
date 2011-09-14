@@ -465,3 +465,8 @@ div#admin-toolbar div.admin-block {
   border-style:solid;
   margin-right:-1px;
   }
+
+body.toolbar.admin-nw #admin-toolbar,
+body.toolbar.admin-ne #admin-toolbar {
+  margin-top: 65px;
+}
